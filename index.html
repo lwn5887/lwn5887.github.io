@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>极简导航</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: "微软雅黑"; }
+        body {
+            width: 100vw;
+            height: 100vh;
+            background: url('https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            position: relative;
+        }
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.4);
+        }
+        .container {
+            position: relative; z-index: 2;
+            width: 100%; height: 100%;
+            display: flex; flex-direction: column;
+            align-items: center; padding: 60px 20px;
+            color: white;
+        }
+        .title { font-size: 2em; margin-bottom: 10px; }
+        .sub-title { font-size: 1.4em; opacity: 0.9; margin-bottom: 40px; }
+        .nav-grid {
+            width: 100%; max-width: 800px;
+            display: grid; grid-template-columns: 1fr; gap: 15px;
+        }
+        @media (min-width: 600px) { .nav-grid { grid-template-columns: 1fr 1fr; } }
+        .nav-item {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(8px); border-radius: 12px;
+            padding: 20px; display: flex; align-items: center;
+            justify-content: space-between; cursor: pointer;
+            transition: 0.3s;
+        }
+        .nav-item:hover {
+            background: rgba(255,255,255,0.25);
+            transform: translateY(-2px);
+        }
+        .nav-number { font-size: 1.2em; opacity: 0.8; }
+        .nav-link { font-size: 1.4em; font-weight: 500; }
+        .nav-arrow {
+            width: 36px; height: 36px; border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            display: flex; align-items: center; justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">永久导航</div>
+        <div class="sub-title">6eeee.cc</div>
+        <div class="nav-grid" id="navGrid"></div>
+        <div class="nav-grid">
+  <div class="nav-item" onclick="window.open('https://www.baidu.com', '_blank')">百度</div>
+  <div class="nav-item" onclick="window.open('https://www.zhihu.com', '_blank')">知乎</div>
+  <div class="nav-item" onclick="window.open('https://www.bilibili.com', '_blank')">B站</div>
+</div>
